@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="www.htyou.com">
+    <serverData>
+      <paths name="www.htyou.com">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/marketing" local="$PROJECT_DIR$/marketing" web="/marketing" />
+            <mapping deploy="/static" local="$PROJECT_DIR$/static" web="/static" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
