@@ -2,7 +2,22 @@
 <project version="4">
   <component name="PublishConfigData" autoUpload="Always" serverName="www.htyou.com">
     <serverData>
+      <paths name="chm">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="www.htyou.com">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/marketing" local="$PROJECT_DIR$/marketing" web="/marketing" />
+            <mapping deploy="/static" local="$PROJECT_DIR$/static" web="/static" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="www.htyou.com (project level)">
         <serverdata>
           <mappings>
             <mapping deploy="/marketing" local="$PROJECT_DIR$/marketing" web="/marketing" />

@@ -1,0 +1,394 @@
+<!--Header开始-->
+<div id="header-body">
+	<style>
+		#header-section {
+			width: 1176px;
+			height: 158px;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		#header-section > .logo-section {
+			width: 268px;
+			height: 91px;
+			background: url(/static/2016/htyou_logo.png) no-repeat center center;
+			position: absolute;
+			top: 55px;
+			left: 0;
+			z-index: 99;
+		}
+
+		#header-section > .hotline-section {
+			width: 254px;
+			height: 83px;
+			background: url(/static/2016/hotline.png) no-repeat center center;
+			position: absolute;
+			top: 66px;
+			right: 0;
+			z-index: 99;
+		}
+
+		#header-body {
+			width: 100%;
+			background: url(/static/2016/header_bg.png) repeat-x top center;
+			position: relative;
+			z-index: 100;
+
+		}
+
+		#header-body > .header-left-bg {
+			width: 245px;
+			height: 132px;
+			position: absolute;
+			left: 0;
+			top: 47px;
+			background: url(/static/2016/header_left_bg.jpg) no-repeat;
+			z-index: 1;
+		}
+
+		#header-body > .header-right-bg {
+			width: 308px;
+			height: 132px;
+			position: absolute;
+			right: 0;
+			top: 33px;
+			background: url(/static/2016/header_right_bg.jpg) no-repeat;
+			z-index: 1;
+		}
+	</style>
+	<div id="header-section">
+		<!--顶部区域-->
+		<style>
+			#top-section {
+				font: 12px '新宋体', '宋体', simsun;
+				position: relative;
+				z-index: 9999;
+			}
+
+			#top-section span {
+				color: #D3D3D3;
+				padding: 0 6px;
+			}
+
+			#top-section a {
+				color: #8C8C8C;
+			}
+
+			.top-left {
+				position: absolute;
+				top: 8px;
+				left: 0;
+			}
+
+			.top-right {
+				position: absolute;
+				right: 105px;
+				top: 8px;
+			}
+
+			#top-section .weibo {
+				position: absolute;
+				top: 2px;
+				right: 72px;
+			}
+
+			#top-section .phone {
+				position: absolute;
+				top: 2px;
+				right: 36px;
+			}
+
+			#top-section .weixin {
+				position: absolute;
+				top: 2px;
+				right: 0;
+			}
+		</style>
+		<div id="top-section">
+			<div class="top-left">
+				<#if guestInfo?? >
+					尊敬的<span style="color:#FF5F5F; font-weight:bold;">${guestInfo.guestAccount}</span>您好，欢迎您访问华天旅游网！
+					<span>|</span>
+					<a href="${base}/user/user_loginoutPage.action">退出登录</a>
+					<#else>
+						<a href="/login.htm" target="_self">会员登录</a>
+						<span>|</span>
+						<a href="/register.htm" target="_blank">会员注册</a>
+				</#if>
+			</div>
+			<div class="top-right">
+				<a href="/user/club_home.action" target="_blank">会员俱乐部</a>
+				<span>|</span>
+				<a href="#" target="_blank" onclick="alert('建设中，敬请期待！');return false;">网站地图</a>
+				<span>|</span>
+			</div>
+			<a href="http://weibo.com/p/1006062179063294" class="weibo toppanel-icon"><img src="/images/2015_2/icon_weibo.png" alt=""></a>
+			<a href="/page/single/dload_mobile.htm" class="phone toppanel-icon" onmousemove="$('.panel-popup').hide();panelpopupShow('#phone-panel-popup');return false;" onmouseout="panelpopupHide();return false;"><img src="/images/2015_2/icon_phone.png" alt=""></a>
+			<a href="#" class="weixin toppanel-icon" onmousemove="$('.panel-popup').hide();panelpopupShow('#weixin-panel-popup');return false;" onmouseout="panelpopupHide();return false;"><img src="/images/2015_2/icon_weixin.png" alt=""></a>
+			<!--微信区域-->
+			<style>
+				.popup-title {
+					display: block;
+					height: 24px;
+					position: relative;
+					color: #797878;
+					font: 13px MSYH, '微软雅黑';
+					line-height: 24px;
+					text-indent: 10px;
+				}
+
+				.popup-title img.button-close {
+					position: absolute;
+					width: 19px;
+					height: 19px;
+					right: 4px;
+					top: 4px;
+					cursor: pointer;
+				}
+
+				.popup-title .arrow {
+					position: absolute;
+					top: 10px;
+					width: 27px;
+					height: 23px;
+					background: url(/images/2015_1/arrow_up.png);
+					background-size: cover;
+					position: absolute;
+					top: -22px;
+					right: 100px;
+					z-index: 999;
+				}
+
+				.panel-popup {
+					width: 400px;
+					height: 300px;
+					box-shadow: 1px 1px 10px #555;
+					behavior: url(/common/pie/PIE.htc);
+					background: #FFF;
+					position: absolute;
+					top: 38px;
+					z-index: 99;
+					border-radius: 5px;
+					/*opacity: 1;*/
+					/*filter: alpha(opacity=1);*/
+					display: none;
+				}
+
+				.popup-content {
+					position: relative;
+				}
+
+				#weixin-panel-popup {
+					right: 0px;
+				}
+
+				#weixin-panel-popup .arrow {
+					right: 0px;
+				}
+
+			</style>
+			<script>
+				$(document).ready(function () {
+					$.getJSON('/common/websinfo_queryWebsInfos.action?submit=ajax&infoClass=694', function (result) {
+						$('#weixin-panel-popup').css('background', 'url(/' + result[0].info_thumbpic + ')');
+					});
+				});
+			</script>
+			<script>
+				//顶部图片显示隐藏控制函数
+				var popupCloseTimer	= null;
+				function panelpopupHide(){
+					popupCloseTimer = setTimeout(function(){
+						$('.panel-popup').hide();
+					},500);
+				}
+				function panelpopupShow(inDomID){
+					$(inDomID).show();
+					if (popupCloseTimer!=null){
+						clearTimeout(popupCloseTimer);
+					}
+				}
+			</script>
+
+			<div id="weixin-panel-popup" class="panel-popup" onmouseover="panelpopupShow('weixin-panel-popup')" onmouseout="panelpopupHide();" style="background: url(&quot;/pic/news/2015-05-20_10-54-37_0901.png&quot;);">
+				<!--<div class="popup-title" onclick="$('#weixin-panel-popup').hide();">-->
+				<div class="popup-title">
+					<!--<img class="button-close" src="/images/2015_1/icon_close.png" alt=""/>-->
+					<div class="arrow"></div>
+				</div>
+				<div class="popup-content"></div>
+			</div>
+			<!--/微信区域-->
+			<!--手机端区域-->
+			<div id="phone-panel-popup" class="panel-popup" onmouseover="panelpopupShow('phone-panel-popup')" onmouseout="panelpopupHide();" style="right:0px; width:200px; height:272px; background:url(/images/2016/mob2wei.png)">
+				<!--<div class="popup-title">
+					<div class="arrow" style="right:36px;"></div>
+				</div>-->
+				<a href="http://www.htyou.com/page/single/dload_mobile.htm">
+					<div class="popup-content" style="height:272px;"></div>
+				</a>
+			</div>
+			<!--/手机端区域-->
+		</div>
+		<!--/顶部区域-->
+		<!--logo区域 开始-->
+		<style>
+			.logo-section {
+
+			}
+		</style>
+		<div class="logo-section"></div>
+		<!--logo区域 结束-->
+		<!--搜索栏区域 开始-->
+		<style>
+
+			.search-section {
+				background:none !important;
+				background-color: #62C3D0 !important;
+				width: 544px !important;
+				height: 45px !important;
+				position: relative !important;
+				top: 78px !important;
+				left: 340px !important;
+				z-index: 99 !important;
+			}
+
+			.search-section #KeyWords {
+				border: 0px !important;
+				padding: 0 5px !important;
+				width: 468px !important;
+				margin: 3px !important;
+				height: 39px !important;
+				line-height: 39px !important;
+				background-color: #FFF !important;
+				color: #8C8C8C !important;
+				outline: none !important;
+
+				position:absolute !important;
+				left:0 !important;
+				top:0 !important;
+			}
+
+			.search-section .submit-button {
+				background: url(/static/2016/search_btn.png) no-repeat center center !important;
+				border: 0 !important;
+				display: inline-block !important;
+				width: 52px !important;
+				height: 39px !important;
+				line-height: 39px !important;
+				cursor: pointer !important;
+
+				position: absolute !important;
+				right: 5px !important;
+				top: 3px !important;
+
+				left: 485px !important;
+			}
+		</style>
+		<div class="search-section">
+			<form id="querytour" action="/tour/tourpro_listAndFilterProWithQuery.action" target="_blank" method="post">
+				<input type="text" name="KeyWords" id="KeyWords" class="text-input" placeholder="请输入你要搜索的线路">
+				<div class="submit-button" onclick="$('#querytour').submit();">&nbsp;</div>
+			</form>
+		</div>
+		<!--搜索栏区域 结束-->
+		<!--热线区域 开始-->
+		<div class="hotline-section">
+
+		</div>
+		<!--热线区域 结束-->
+	</div>
+	<!--左侧背景花纹-->
+	<div class="header-left-bg"></div>
+	<!--右侧背景花纹-->
+	<div class="header-right-bg"></div>
+	<!--导航条-->
+	<style>
+		#nav-panel {
+			background: url(/static/2016/nav.png?20160524) no-repeat top center;
+			z-index: 99;
+			width: 100%;
+			height: 53px;
+		}
+		#nav-panel>.nav-section {
+			width:1202px;
+			height:53px;
+			margin:0 auto;
+		}
+
+		#nav-panel .nav-unit {
+			font: 12px/100% 'Microsoft YaHei', 微软雅黑, Verdana, Helvetica, Arial, 'WenQuanYi Micro Hei', 新宋体, sans-serif;
+
+			height: 54px;
+			/*background:#F00;*/
+			float:left;
+			cursor: pointer;
+
+			text-align: center;
+			font-size: 20px;
+			color: #FFF;
+			text-shadow: 1px 1px 1px #555;
+			line-height: 60px;
+		}
+		#nav-panel .nav-unit:hover,
+		#nav-panel .nav-unit.current {
+			color: #FF7C08;
+		}
+	</style>
+	<div id="nav-panel">
+		<div class="nav-section">
+			<a href="http://www.htyou.com/">
+				<div class="nav-unit" style="width:108px;">首页</div>
+			</a>
+			<a href="http://www.htyou.com/tourteam/isnative/2.htm">
+				<div class="nav-unit" style="width:150px;">国内旅游</div>
+			</a>
+			<a href="http://www.htyou.com/tourteam/isnative/4.htm">
+				<div class="nav-unit" style="width:150px;">出境旅游</div>
+			</a>
+			<a href="http://www.htyou.com/tourteam/isnative/1.htm">
+				<div class="nav-unit" style="width:150px;">周边旅游</div>
+			</a>
+			<a href="http://www.htyou.com/tour/visa_gotoSecond.action">
+				<div class="nav-unit" style="width:150px;">出境签证</div>
+			</a>
+			<a href="http://www.htyou.com/hotel.htm">
+				<div class="nav-unit" style="width:125px;">酒店</div>
+			</a>
+			<a href="http://www.htyou.com/common/websinfo_gotoMeetingThree.action?queryId=323">
+				<div class="nav-unit" style="width:150px;">会议会展</div>
+			</a>
+			<a href="http://www.htyou.com/ticket.htm">
+				<div class="nav-unit" style="width:150px;">机票服务</div>
+			</a>
+		</div>
+	</div>
+	<script>
+		//根据当前url，高亮导航条的相应文字
+		(function(window){
+			var currentFlag = 0;
+			if (window.location.href=='http://www.htyou.com/tourteam/isnative/2.htm')
+				currentFlag = 1;
+			if (window.location.href=='http://www.htyou.com/tourteam/isnative/4.htm')
+				currentFlag = 2;
+			if (window.location.href=='http://www.htyou.com/tourteam/isnative/1.htm')
+				currentFlag = 3;
+			if (window.location.href=='http://www.htyou.com/tour/visa_gotoSecond.action')
+				currentFlag = 4;
+			if (window.location.href=='http://www.htyou.com/hotel.htm')
+				currentFlag = 5;
+			if (window.location.href=='http://www.htyou.com/common/websinfo_gotoMeetingThree.action?queryId=323')
+				currentFlag = 6;
+			if (window.location.href=='http://www.htyou.com/ticket.htm')
+				currentFlag = 7;
+			//当前页面标志不是0（不是首页），则高亮之
+			if (currentFlag!=0){
+				$('#nav-panel .nav-unit').eq(currentFlag).addClass('current');
+			}
+		})(window);
+
+
+	</script>
+	<!--/导航条-->
+</div>
+<!--/Header结束-->

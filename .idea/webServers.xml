@@ -2,11 +2,12 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="703eb8ba-c749-48d4-9524-d03882e1d276" name="www.htyou.com" url="http://www.htyou.com">
+      <webServer id="703eb8ba-c749-48d4-9524-d03882e1d276" name="www.htyou.com (project level)" url="http://www.htyou.com">
         <fileTransfer host="www.htyou.com" port="2222" rootFolder="/huatian/apache-tomcat-6.0.18-hebing/webapps/" accessType="SFTP" password="dfccdfdedfdadfdfdfd9dfcfdfd8df9bdf98df99" username="userftp">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
+          <option name="port" value="2222" />
         </fileTransfer>
       </webServer>
     </option>
