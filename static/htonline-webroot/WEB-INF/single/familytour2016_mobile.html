@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="GBK">
+	<title>华天旅游网::亲子游</title>
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<script src="/static/jslib/jquery/jquery-1.12.3.min.js" charset="utf-8"></script>
+	<script src="/static/jslib/avalon1.5/avalon.js" charset="utf-8"></script>
+	<script>
+		// 20160708 加入CSS样式函数
+		function addGlobalStyle(css) {
+			var head, style;
+			head = document.getElementsByTagName('head')[0];
+			if (!head) { return; }
+			style = document.createElement('style');
+			style.type = 'text/css';
+			style.innerHTML = css;
+			head.appendChild(style);
+		}
+		//去掉百度商桥
+		addGlobalStyle('#newBridge {display:none !important;}');
+	</script>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+
+		img {
+			border: 0;
+			display: block;
+		}
+
+		a {
+			border: 0;
+		}
+
+		img.static-img {
+			width: 640px;
+			margin: 0 auto;
+		}
+	</style>
+	<script>
+		avalon.ready(function () {
+			var BodyVM = avalon.define({
+				$id:        'body',
+				guoneiList: [],
+				guojiList:  []
+			});
+
+			avalon.scan();
+
+			//载入国内线路数据
+			$.getJSON('http://www.htyou.com/mobile/ipad_queryTourLine.action?pagesize=-1&KeyWords=%E4%BA%B2%E5%AD%90&isnative=1_2&sortCol=tourproname,leastprice&sortWay=desc&jsoncallback=?', function (result) {
+				BodyVM.guoneiList = result.value;
+			}).done(function () {
+				$('.tourlist').eq(0).show();
+			});
+			//载入国外线路数据
+			$.getJSON('http://www.htyou.com/mobile/ipad_queryTourLine.action?pagesize=-1&KeyWords=%E4%BA%B2%E5%AD%90&isnative=3_4&sortCol=tourproname,leastprice&sortWay=desc&jsoncallback=?', function (result) {
+				BodyVM.guojiList = result.value;
+			}).done(function () {
+				$('.tourlist').eq(1).show();
+			});
+		});
+	</script>
+</head>
+<body ms-controller="body">
+<img src="/static/20160629_cruises/ftmobile_01.png" alt="华天旅游网::亲子游" class="static-img">
+<style scoped>
+	.tourlist {
+		margin-top: -1px;
+		margin-bottom: -1px;
+		width: 640px;
+		margin: 0 auto;
+		display: none;
+	}
+
+	.tourunit {
+		display: block;
+		position: relative;
+		padding-bottom: 2em;
+	}
+
+	.tourunit img.pic {
+		width: 270px;
+		height: 180px;
+		-webkit-align-self: center;
+		-ms-flex-item-align: center;
+		align-self: center;
+		background: #FFF;
+		padding: 1rem 1rem;
+		margin: 0 1rem;
+		-webkit-transition: all .5s ease;
+		transition: all .5s ease;
+		color: #41403E;
+		font-size: 2rem;
+		letter-spacing: 1px;
+		outline: none;
+		box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+		border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+	}
+
+	.tourunit .title {
+		font-size: 20px;
+		position: absolute;
+		left: 330px;
+		top: 13px;
+		width: 290px;
+		text-align: center;
+		height: 96px;
+		overflow: hidden;
+	}
+
+	.tourunit .price {
+		font-size: 38px;
+		color: #FB6B15;
+		position: absolute;
+		font-family: arial;
+		left: 340px;
+		top: 104px;
+		text-align: center;
+		width: 250px;
+	}
+
+	.tourunit .oldprice {
+		display: none;
+	}
+
+	.tourunit img.btn {
+		position: absolute;
+		left: 400px;
+		top: 160px;
+	}
+
+	.tourunit a {
+		text-decoration: none;
+		color: #000;
+	}
+</style>
+<div class="tourlist" style="background-color: #B9ECFF;">
+	<!--线路单元-->
+	<div class="tourunit" ms-repeat-unit="guojiList">
+		<a ms-attr-href="/weixin_h5/tour-detail.html?lineid={{unit.lineid}}">
+			<img class="pic" ms-attr-src="http://www.htyou.com/{{unit.spotviewpic}}" alt="{{unit.tourproname}}">
+			<div class="title">{{unit.tourproname}}</div>
+			<div class="price">&yen;{{unit.leastprice}}元</div>
+			<div class="oldprice">&yen;元</div>
+			<img class="btn" src="/static/20160629_cruises/btn_paynow.png" alt="">
+		</a>
+	</div>
+	<!--/线路单元-->
+</div>
+<img src="/static/20160629_cruises/ftmobile_03.png" alt="华天旅游网::亲子游" class="static-img">
+<div class="tourlist" style="background-color: #F3E9DF;">
+	<!--线路单元-->
+	<div class="tourunit" ms-repeat-unit="guoneiList">
+		<a ms-attr-href="/weixin_h5/tour-detail.html?lineid={{unit.lineid}}">
+			<img class="pic" ms-attr-src="http://www.htyou.com/{{unit.spotviewpic}}" alt="{{unit.tourproname}}">
+			<div class="title">{{unit.tourproname}}</div>
+			<div class="price">&yen;{{unit.leastprice}}元</div>
+			<div class="oldprice">&yen;元</div>
+			<img class="btn" src="/static/20160629_cruises/btn_paynow.png" alt="">
+		</a>
+	</div>
+	<!--/线路单元-->
+</div>
+<img src="/static/20160629_cruises/ftmobile_05.png" alt="华天旅游网::亲子游" class="static-img">
+<!--百度统计工具 20160706-->
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?e0b438b1ca885b92b2ca277eeb16e0cf";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<!--/百度统计工具-->
+
+<!--在线客服模块-->
+<style>
+	#online-tools {
+		width:66px;
+		height:198px;
+		position:fixed;
+		right:0;
+		bottom:200px;
+		z-index:99999;
+	}
+	#online-tools a>div {
+		cursor: pointer;
+		width:66px;
+		height:66px;
+		position:absolute;
+		z-index:999999;
+
+	}
+	#online-tools div.online {
+		right: 0;
+		top: 132px;
+		width: 66px;
+		height: 66px;
+		background: url(/static/2016/tools_off.png) no-repeat top left;
+		background-position-y: 0px;
+	}
+
+	#online-tools div.phone {
+		right:0;
+		top:198px;
+		width:66px;
+		height:66px;
+		background: url(/static/2016/tools_off.png) no-repeat top left;
+		background-position-y: -198px;
+	}
+	#online-tools div.return2top {
+		right:0;
+		top:264px;
+		width:66px;
+		height:66px;
+		background: url(/static/2016/tools_off.png) no-repeat top left;
+		background-position-y: -264px;
+	}
+</style>
+<div id="online-tools">
+	<!--在线客服-->
+	<!--<a href="http://www15.53kf.com/webCompany.php?arg=10102842&style=1" target="_blank">-->
+	<a href="http://p.qiao.baidu.com/cps/chat?siteId=1606197&userId=5231856" target="_blank">
+		<div class="online"></div>
+	</a>
+	<!--官方电话-->
+	<a href="tel:073155555555">
+		<div class="phone"></div>
+	</a>
+	<!--回到顶部-->
+	<a href="javascript:void(0)">
+		<div class="return2top" onclick="$('body,html').animate({scrollTop:0},600);"></div>
+	</a>
+</div>
+<!--/在线客服模块-->
+</body>
+</html>

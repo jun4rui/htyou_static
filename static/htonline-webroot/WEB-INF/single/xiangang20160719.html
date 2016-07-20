@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="GBK">
+	<link rel="stylesheet" href="http://www.htyou.com/static/jslib/normallize_4.1.1.css">
+	<script src="/static/jslib/jquery/jquery-1.12.3.min.js" charset="utf-8"></script>
+	<title>华天旅游网::</title>
+
+	<style>
+		body {
+			font: 12px/100% "Microsoft YaHei", 微软雅黑, Verdana, Helvetica, Arial, "WenQuanYi Micro Hei", 新宋体, sans-serif;
+			padding: 0;
+			margin: 0;
+		}
+
+		ul, li {
+			list-style: none;
+		}
+
+		img {
+			border: 0;
+			display: block;
+		}
+
+		a {
+			border: 0;
+		}
+
+		.clear {
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+<!--公用头部-->
+<#include "/WEB-INF/common/common_head_a.html" />
+<!--/公用头部-->
+
+<!--主内容区-->
+<style scoped>
+	#main-panel {
+		width: 1900px;
+		height: 2960px;
+		background:url(/static/2016/20160720_xiangang.jpg) no-repeat;
+		position: relative;
+	}
+	#main-panel>a {
+		text-decoration:none;
+	}
+	#main-panel>a>.hotlink {
+		position: absolute;
+		cursor: pointer;
+
+		/*background-color: #5F52A0;*/
+	}
+</style>
+<div id="main-panel">
+	<!--3晚4天-->
+	<a href="http://htyou.com/tour/type/month/keyword岘港_4天.htm" target="_blank"><div class="hotlink" style="width: 582px;height: 550px;left: 358px;top: 638px;"></div></a>
+	<!--4晚5天-->
+	<a href="http://htyou.com/tour/type/month/keyword岘港_5天.htm" target="_blank"><div class="hotlink" style="width: 582px;height: 550px;left: 957px;top: 638px;"></div></a>
+	<!--长滩岛-->
+	<a href="http://htyou.com/tour/type/month/keyword长滩岛.htm" target="_blank"><div class="hotlink" style="width: 1201px;height: 250px;left: 349px;top: 2677px;"></div></a>
+</div>
+<script>
+	function rePos(){
+		if ($(window).width()>1900){
+			$('#main-panel').css({
+				'margin-left':'auto',
+				'margin':'0 auto'
+			});
+		}else{
+			$('#main-panel').css({
+				'margin-left':-1*(Math.abs($(window).width()-1900)/2)
+			});
+		}
+	}
+	$(window).resize(function(){
+		rePos();
+	});
+	$(document).ready(function(){
+		rePos();
+	});
+</script>
+<!--/主内容区-->
+<!--公用底部-->
+<div id="bootom-section">
+	<#include "/WEB-INF/common/common_footer.html" />
+</div>
+<!--/公用底部-->
+</body>
+</html>

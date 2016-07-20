@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="GBK">
+	<title></title>
+	<script src="/common/jquery-1.11.0.min.js" charset="utf-8"></script>
+</head>
+<body>
+<div id="message">正在跳转……</div>
+<script>
+	// 判断用户设备类型
+	function deviceType(){
+		var info = window.navigator;
+		var platform	= info.platform.toLowerCase();
+		var useragent	= info.userAgent.toLowerCase();
+		//是Windows的判断
+		if (platform.indexOf('win32')>-1){
+			return "Windows";
+		}
+		//是Android的判断
+		if (platform.indexOf('linux')>-1 && useragent.indexOf('android')){
+			return "Android";
+		}
+		//是iPhone的判断
+		if (platform.indexOf('iPhone')>-1){
+			return "iPhone";
+		}
+		//是iPad的判断
+		if (platform.indexOf('iPad')>-1){
+			return "iPad"
+		}
+
+		//其它设备返回Ohter
+		return "Other"
+	}
+	// Main
+	var device = deviceType().toLowerCase();
+	if (device=='android'){
+		$('#message').text('跳转到Android下载……');
+		window.location.href	= 'http://a.app.qq.com/o/simple.jsp?pkgname=io.cordova.htyoumobile';
+	}
+	if (device=='iphone' || device=='ipad'){
+		$('#message').text('跳转到iOS下载……');
+		window.location.href	= 'https://appsto.re/cn/eznK-.i';
+	}
+	if (device=='other'){
+		$('#message').text('对不起，APP暂不支持Android、iOS以外的设备……');
+	}
+
+</script>
+</body>
+</html>

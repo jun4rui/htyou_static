@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="GBK">
+	<title>华天旅游网::游轮</title>
+	<script src="/static/jslib/jquery/jquery-1.12.3.min.js" charset="utf-8"></script>
+	<script src="/static/jslib/avalon1.5/avalon.js" charset="utf-8"></script>
+
+	<!--view-source:http://www.htyou.com/page/single/cruises2016.htm-->
+	<style>
+		body {
+			padding:0;
+			margin:0;
+		}
+		ul, li {
+			list-style: none;
+		}
+		img {
+			border:0;
+			display:block;
+		}
+		a {
+			border:0;
+		}
+	</style>
+</head>
+<body>
+<#include "/WEB-INF/common/common_head_a.html" />
+<!--顶部banner-->
+<style scoped>
+	#top-banner {
+		height: 388px;
+		width: 100%;
+		background: url(/static/20160629_cruises/top_banner.jpg) no-repeat center top;
+		background-size: cover;
+	}
+</style>
+<a href="http://www.htyou.com/tour/type/month/keyword%E7%9A%87%E5%AE%B6%E5%8A%A0%E5%8B%92%E6%AF%94%E6%B0%B4%E6%89%8B.htm">
+	<div id="top-banner"></div>
+</a>
+
+<!--/顶部banner-->
+
+<!--主要内容-->
+<style scoped>
+	#main-info {
+		width: 1200px;
+		margin: 0 auto;
+	}
+</style>
+<div id="main-info">
+	<img src="/static/20160629_cruises/main_info.png" alt="">
+</div>
+<!--/主要内容-->
+
+<!--底部邮轮信息-->
+<!--section公共样式-->
+<style scoped>
+	.section {
+		width: 1176px;
+		margin: 0 auto;
+	}
+
+	.section > .title {
+		height: 47px;
+		display: block;
+		border-bottom: 3px solid #DCDCDC;
+		position: relative;
+	}
+
+	.section > .title > .tab-panel {
+		width: 890px;
+		height: 50px;
+		margin-bottom: -3px;
+		margin-left: 90px;
+	}
+
+	.section > .title > .tab-panel > .tab-unit,
+	.section > .title > .tab-panel > .tab-title {
+		/*width: 76px;*/
+		padding: 0 0.75em;
+		height: 50px;
+		font: 16px/50px '宋体', songti, '新宋体', simsun;
+		color: #595959;
+		text-align: center;
+		float: left;
+		cursor: pointer;
+	}
+
+	.section > .title > a.morelink {
+		width: 70px;
+		height: 40px;
+		text-align: center;
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		color: #8C8C8C;
+		font: 12px/47px 'simsun', '新宋体', '宋体';
+	}
+
+	.section > .content {
+		width: 1176px;
+		height: 416px;
+		position: relative;
+	}
+
+	.section > .content > .section-ad-panel {
+		width: 288px;
+		height: 468px;
+		overflow: hidden;
+		position: absolute;
+		top: 20px;
+		right: 0;
+	}
+
+	.section > .content > .pointlist-panel {
+		width: 282px;
+		height: 486px;
+		position: relative;
+		left: 0;
+		top: 0;
+		background-color: #F3F3F3;
+	}
+
+	.section > .content > .pointlist-panel > .section-ad-left-panel {
+		width: 282px;
+		height: 218px;
+		position: absolute;
+		overflow: hidden;
+		left: 0;
+		bottom: 0;
+	}
+
+	.section > .content > .pointlist-panel > .point-title {
+		padding: 14px 0 0 14px;
+	}
+
+	.section > .content > .pointlist-panel > .point-title > span {
+		width: 110px;
+		height: 28px;
+		font: 12px/28px '宋体', simsun, '新宋体';
+		border: 1px solid #555;
+		text-align: center;
+		line-height: 28px;
+		color: #555;
+		background: #FFF;
+		border-radius: 14px 14px;
+		display: inline-block;
+	}
+
+	.section > .content > .pointlist-panel > .point-list {
+		padding: 8px 14px;
+	}
+
+	.section > .content > .pointlist-panel > .point-list > a {
+		font: 12px/22px '宋体', simsun, '新宋体';
+		color: #7D7D7D;
+		margin-right: 1em;
+	}
+
+	.section > .content > .tourlist-panel {
+		position: absolute;
+		left: 302px;
+		top: 0;
+	}
+
+	.tour-unit {
+		width: 272px;
+		height: 223px;
+		margin: 20px 20px 0 0;
+		position: relative;
+		float: left;
+	}
+
+	.tour-unit img {
+		width: 272px;
+		height: 169px;
+		display: block;
+	}
+
+	.tour-unit .text {
+		width: 178px;
+		height: 36px;
+		overflow: hidden;
+		position: absolute;
+		bottom: 9px;
+		left: 0;
+		color: #7D7D7D;
+		font: 12px/18px '宋体', simsun, '新宋体';
+	}
+
+	.tour-unit .price {
+		width: 104px;
+		height: 54px;
+		overflow: hidden;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		font-family: '微软雅黑', 'Microsoft YaHei UI';
+		font-size: 16px;
+		line-height: 54px;
+		text-align: right;
+		color: #FF7C08;
+	}
+
+	.tour-unit .price > span {
+		font-size: 25px;
+	}
+</style>
+<style>
+	#youlun > .title {
+		background: url(/static/20160629_cruises/title_youlun.png) center left no-repeat;;
+	}
+
+	#youlun > .title > .tab-panel > .tab-unit.active,
+	#youlun > .title > .tab-panel > .tab-unit:hover,
+	#youlun > .title > .tab-panel > .tab-title,
+	#youlun > .content > .pointlist-panel > .point-list > a:hover {
+		color: #ff6600;
+	}
+
+	#youlun > .title > .tab-panel > .tab-unit.active {
+		background: url(/static/20160629_cruises/point_youlun.png) bottom center no-repeat;
+	}
+
+	#youlun > .content > .pointlist-panel > .point-title > span {
+		color: #ff6600;
+		border: 1px solid #ff6600;
+	}
+</style>
+
+<!--/section公公样式-->
+
+<div id="youlun" class="section" avalonctrl="guoneiyou">
+	<div class="title" style="">
+		<ul class="tab-panel">
+			<li class="tab-unit active" key="0">歌诗达邮轮</li>
+			<li class="tab-unit" key="1">皇家加勒比国际游轮</li>
+			<li class="tab-unit" key="2">公主邮轮</li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+	<div class="content">
+		<style scoped>
+			.info-panel {
+				width: 283px;
+				height: 381px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: url(/static/20160629_cruises/bg_infopanel.png) top center no-repeat;
+			}
+
+			.info-panel .ship-logo {
+				width: 160px;
+				height: 38px;
+				left: 20px;
+				top: 22px;
+				position: absolute;
+			}
+
+			.info-panel .ship-type {
+				left: 20px;
+				top: 70px;
+				position: absolute;
+				font: 18px 'Microsoft YaHei';
+				font-weight: bold;
+				color: #333;
+			}
+
+			.info-panel .ship-name {
+				left: 20px;
+				top: 110px;
+				position: absolute;
+				font: 18px 'Microsoft YaHei';
+				font-weight: bold;
+				color: #ff6600;
+				text-decoration: underline;
+			}
+
+			.info-panel .ship-info {
+				left: 20px;
+				top: 140px;
+				width: 247px;
+				position: absolute;
+				font: 13px/150% '新宋体', simsun;
+			}
+
+			.info-panel .ship-parameter {
+				left: 20px;
+				top: 300px;
+				width: 247px;
+				position: absolute;
+				font: 13px/150% '新宋体', simsun;
+				color: #999;
+			}
+
+			.info-panel .ship-parameter td {
+				text-align: center;
+				border-right: 1px dashed #999;
+				padding: .5em 0;
+				font: 12px/150% '新宋体', simsun;
+				width: 25%;
+			}
+
+			.info-panel .ship-parameter td:last-child {
+				border-right: 0;
+			}
+
+			img.shippic1 {
+				position: absolute;
+				left: 292px;
+				top: 19px;
+				width: 590px;
+				height: 362px;
+			}
+
+			img.shippic2 {
+				position: absolute;
+				right: 0px;
+				top: 20px;
+				width: 285px;
+				height: 171px;
+			}
+
+			img.shippic3 {
+				position: absolute;
+				right: 0px;
+				top: 210px;
+				width: 285px;
+				height: 171px;
+			}
+		</style>
+		<!--信息区域-->
+		<div class="info-panel">
+			<img src="" alt="" class="ship-logo">
+			<div class="ship-type"></div>
+			<div class="ship-name"></div>
+			<div class="ship-info"></div>
+			<table class="ship-parameter">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<!--/信息区域-->
+		<!--图片1-->
+		<img src="" alt="" class="shippic1">
+		<!--图片2-->
+		<img src="" alt="" class="shippic2">
+		<!--图片3-->
+		<img src="" alt="" class="shippic3">
+	</div>
+</div>
+<script>
+	//游轮信息
+	var shipinfo = [
+		{
+			type: '歌诗达邮轮',
+			name: '赛琳娜号',
+			info: '歌诗达赛琳娜号是歌诗达舰队中独具古罗马风格的邮轮，她以富力恢弘的内饰设计和精致细节完美还原古罗马神话传说，为乘客们打造充满欧式浪漫氛围和深厚文化渊源的“海上古罗马之城”。置身这座漂浮于海上的梦幻宫殿，邮轮的每一隅如同是对古罗马文明及欧式艺术的礼赞。',
+			parameter: [
+				'总吨位\n11.45万吨',
+				'载客数\n	3,780人',
+				'总长度\n	290米',
+				'甲板层\n	14层'
+			],
+			pics: [
+				'gesida1.jpg',
+				'gesida2.jpg',
+				'gesida3.jpg',
+				'gesida4.jpg'
+			]
+		},
+		{
+			type: '皇家加勒比国际游轮',
+			name: '海洋量子号',
+			info: '皇家加勒比-海洋量子号游轮被称作来自未来的游轮，船上的每一样设施都极具创新，颠覆传统。对于首次乘坐游轮的旅客而言，海洋量子号是惊喜美好的；而对于有游轮经验的旅客，则更能体会到它的与众不同，超越想象',
+			parameter: [
+				'总吨位\n16.78万吨',
+				'载客数\n4,180人',
+				'总长度\n348米',
+				'甲板层\n16层'
+			],
+			pics: [
+				'jialebi1.jpg',
+				'jialebi2.jpg',
+				'jialebi3.jpg',
+				'jialebi4.jpg'
+			]
+		},
+		{
+			type: '公主邮轮',
+			name: '蓝宝石公主号',
+			info: '蓝宝石公主号于2012年翻修一新，为您奉上愉悦的精致美食和无微不至的私人服务，带给您家一般的温暖和陶冶心灵的独特体验。在这里，您将发现一个全新的自我。挥别日常生活的忙碌，同蓝宝石公主号一起驶向广阔大海，探寻一段优雅、精致和充满喜悦的难忘海上之旅。',
+			parameter: [
+				'总吨位\n11.58万吨',
+				'载客数\n2,670人',
+				'总长度\n290米',
+				'甲板层\n18层'
+			],
+			pics: [
+				'gongzhu1.jpg',
+				'gongzhu2.jpg',
+				'gongzhu3.jpg',
+				'gongzhu4.jpg'
+			]
+		}
+	];
+	//绘制内容函数
+	function renderInfo(inNum) {
+		console.log(inNum);
+		var _address = 'http://www.htyou.com/static/20160629_cruises/';
+		//显示信息
+		$('#youlun .ship-logo').attr('src', _address + shipinfo[inNum].pics[0]);
+
+		$('#youlun .info-panel .ship-type').text(shipinfo[inNum].type);
+		$('#youlun .info-panel .ship-name').text(shipinfo[inNum].name);
+		$('#youlun .info-panel .ship-info').text(shipinfo[inNum].info);
+		$('#youlun .info-panel .ship-parameter td').eq(0).html(shipinfo[inNum].parameter[0].replace(/\n/g, '<br>'));
+		$('#youlun .info-panel .ship-parameter td').eq(1).html(shipinfo[inNum].parameter[1].replace(/\n/g, '<br>'));
+		$('#youlun .info-panel .ship-parameter td').eq(2).html(shipinfo[inNum].parameter[2].replace(/\n/g, '<br>'));
+		$('#youlun .info-panel .ship-parameter td').eq(3).html(shipinfo[inNum].parameter[3].replace(/\n/g, '<br>'));
+
+		$('#youlun .shippic1').attr('src', _address + shipinfo[inNum].pics[1]);
+		$('#youlun .shippic2').attr('src', _address + shipinfo[inNum].pics[2]);
+		$('#youlun .shippic3').attr('src', _address + shipinfo[inNum].pics[3]);
+	}
+	renderInfo(0);
+	//点击行为脚本
+	$('#youlun .tab-unit').click(function () {
+		renderInfo($(this).attr('key'));
+		$('#youlun .tab-unit.active').removeClass('active');
+		$(this).addClass('active');
+	});
+</script>
+<!--/底部邮轮信息-->
+<div id="bootom-section">
+	<#include "/WEB-INF/common/common_footer.html" />
+</div>
+</body>
+</html>

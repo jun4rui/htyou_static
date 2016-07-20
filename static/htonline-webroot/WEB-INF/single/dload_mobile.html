@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="GBK">
+	<!--<base href="http://www.htyou.com/">-->
+	<title>华天旅游网::移动APP下载页面</title>
+	<script src="/common/jquery-1.11.0.min.js" charset="utf-8"></script>
+	<!-- 公共CSS部分 Begin -->
+	<link rel="stylesheet" href="/images/v14b/common.css"/>
+	<link rel="stylesheet" type="text/css" href="${base}/css/common2.0.css"/>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+
+		#download-panel {
+			margin: 0 auto;
+			width: 1150px;
+			height: 550px;
+			background: url(/static/mobdload.png?20160526) center bottom no-repeat;
+			position: relative;
+			z-index: 1;
+		}
+
+		.mask-block {
+			position: absolute;
+			z-index: 2;
+			width: 160px;
+			height: 54px;
+			cursor: pointer;
+			/*background: rgba(255, 0, 0, 0.6);*/
+		}
+		/*Patch*/
+		.header-shadow {
+			height:0 !important;
+		}
+		#ad-section-bottom,
+		.xianguanxinxi {
+			display:none !important;
+		}
+		.bottom-bar-1 {
+			margin-top:0 !important;
+		}
+
+	</style>
+</head>
+<body>
+<#include "/WEB-INF/common/common_head_a.html" />
+<div id="download-panel">
+	<!--Android下载-->
+	<a href="http://android.myapp.com/myapp/detail.htm?apkName=io.cordova.htyoumobile">
+		<div class="mask-block" style="left: 536px; top: 465px;"></div>
+	</a>
+	<!--iPhone下载-->
+	<a href="https://appsto.re/cn/eznK-.i">
+		<div class="mask-block" style="left: 708px; top: 465px;"></div>
+	</a>
+	<!--iPad下载-->
+	<a href="javascript:void(0)">
+		<div class="mask-block" style="left: 880px; top: 465px;"></div>
+	</a>
+</div>
+<div id="bootom-section">
+	<#include "/WEB-INF/common/common_footer.html" />
+</div>
+</body>
+</html>

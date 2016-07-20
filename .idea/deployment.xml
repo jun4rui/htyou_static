@@ -14,6 +14,7 @@
           <mappings>
             <mapping deploy="/marketing" local="$PROJECT_DIR$/marketing" web="/marketing" />
             <mapping deploy="/static" local="$PROJECT_DIR$/static" web="/static" />
+            <mapping deploy="/htonline-webroot/WEB-INF/single" local="$PROJECT_DIR$/static/htonline-webroot/WEB-INF/single" web="/page/single" />
           </mappings>
         </serverdata>
       </paths>
