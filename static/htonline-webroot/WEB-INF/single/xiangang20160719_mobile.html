@@ -69,17 +69,15 @@
 </style>
 <!-- 20160720_xiangang_mobile.png -->
 <div id="main-panel">
-	<a href="/weixin_h5/tour-list.html?q=岘港3晚4天">
-		<div id="xiangang1" class="float-hotzone"></div>
-	</a>
-	<a href="/weixin_h5/tour-list.html?q=岘港4晚5天">
-		<div id="xiangang2" class="float-hotzone"></div>
-	</a>
-	<a href="/weixin_h5/tour-list.html?q=长滩">
-		<div id="changtan" class="float-hotzone"></div>
-	</a>
+	<div id="xiangang1" class="float-hotzone" q="岘港_4天"></div>
+	<div id="xiangang2" class="float-hotzone" q="岘港_5天"></div>
+	<div id="changtan" class="float-hotzone"  q="长滩"></div>
 </div>
-
+<script>
+	$('.float-hotzone').click(function(){
+		window.location.href = 'http://www.htyou.com/weixin_h5/tour-list.html?q='+$(this).attr('q');
+	});
+</script>
 
 
 <!--百度统计工具 20160706-->
